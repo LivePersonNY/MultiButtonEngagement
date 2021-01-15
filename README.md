@@ -77,7 +77,7 @@ Below is a table of the available options and defaults
 |channels|String, Sets the channels that will appear in the engagement|facebook,whatsapp,apple,sms|
 |containerclass|String, the CSS class that is applied to the wrapping DIV for styling purposes|lp-multi-channel-engagement|
 |zindex|Integer, Sets the Z index of the element, typically this will not need to be changed|10000|
-|css|URL, The url to the CSS file that is loaded for styling. Use this if you want to dramatically change the look/feel of the engagement|https://d1hryyr5hiabsc.cloudfront.net/web2020/js/engagement.min.css|
+|css|URL, The url to the CSS file that is loaded for styling. Use this if you want to dramatically change the look/feel of the engagement|[Default CSS...](https://d1hryyr5hiabsc.cloudfront.net/web2020/js/engagement.min.css)|
 |debug|Boolean, enable debug logs to appear in the console|false|
 
 #### Callbacks
