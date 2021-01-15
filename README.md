@@ -40,7 +40,7 @@ Paste in the footer of your page the div noted from the engagement
 
 ### Custom Configuration
 
-The settings of the engagement can be configured in 2 ways. Using `data` attributes in the `<div>` added to the engagement (see step x above), or by calling the `config` method on the `lpMultiChannelEngagement` object (created when js is loaded).
+The settings of the engagement can be configured in 2 ways. Using `data` attributes in the `<div id="lp-multi...` added to the engagement, or by calling the `config` method on the `lpMultiChannelEngagement` object (created when js is loaded).
 
 #### Using data attributes
 
@@ -90,8 +90,26 @@ Example:
 
 ```html
 <script>
-	lpMultiChannelEngagement.onClickWhatsapp(function() {
-		// Do something here like open a whatsapp page
+	lpMultiChannelEngagement.config({
+		channels: 'facebook,whatsapp',
+		onClickWhatsapp: function() {
+			// Do something here like open a whatsapp page
+		},
+		onClickFacebook: function() {
+			// Do something here like open Facebook
+		}
 	});
+</script>
+```
+
+### Extra
+
+#### Start web conversation with initial message from user
+
+There is a method in this Javascript kit that will allow you to fire off an initial message to start a conversation. The method is `startWebWithMessage`.
+
+```html
+<script>
+	lpMultiChannelEngagement.startWebWithMessage('Hi there!');
 </script>
 ```
