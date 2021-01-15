@@ -1,0 +1,88 @@
+body {
+    .lp-multi-channel-engagement {
+        position: fixed;
+        right: 0px;
+
+        bottom: 0;
+        padding: 0;
+        height: 110px;
+        width: 110px;
+        cursor: pointer;
+        @media screen and (max-width: 767px) {
+            background: url(https://d1hryyr5hiabsc.cloudfront.net/button_graphics/Chat+icon_80x80.svg) no-repeat 50% 50%;
+        }
+        display: block !important;
+    }
+    .lp-multi-channel-buttons {
+        position: absolute;
+        bottom: 0;
+        right: -200px;
+        transition: right 0.5s;
+        width: 250px;
+        height: auto;
+        padding: 15px;
+        .lp-multi-channel-image {
+            position: relative;
+            float: right;
+            right: 0;
+            clear: right;
+            transition: 0.5s ease;
+            opacity: 1;
+            margin: 10px 0 0 0;
+            cursor: pointer;
+            @media screen and (max-width: 767px) {
+                display: none !important;
+            }
+        }
+        .lp-multi-channel-main {
+          //transform: rotate(0);
+          //transition: 1s ease 0.2s;
+          max-width: 80px;
+          max-height: 80px;
+          border-radius: 20px;
+        }
+    }
+
+    &.engagement-ready {
+        .lp-multi-channel-buttons {
+            right: 0;
+            opacity: 1;
+            .lp-multi-channel-image:not(.lp-multi-channel-main) {
+                transition: right 0.5s ease 4s, opacity 1s ease 5s;
+                //opacity: .5;
+                right: -200px;
+            }
+            /*.lp-multi-channel-image.lp-multi-channel-main {
+                transition: 0.7s ease 4s;
+                //transform: rotate(90deg);
+            }*/
+        }
+        &.engagement-loaded {
+            .lp-multi-channel-image:not(.lp-multi-channel-main) {
+                opacity: 0.5;
+            }
+        }
+    }
+    .lp-multi-channel-buttons {
+        &:hover {
+            .lp-multi-channel-image {
+                @for $i from 1 through 4 {
+                    $del: ($i / 10) * 1s;
+                    $dur: (($i / 10) + 1) * 0.4s;
+                    &:nth-child(#{$i}):not(.lp-multi-channel-main) {
+                        transition: right $dur ease $del, opacity 1s ease !important;
+                    }
+                }
+                /*&.lp-multi-channel-main {
+                  //transform: rotate(0);
+                  //transition: 1s ease 0.2s;
+                  max-width: 80px;
+                  max-height: 80px;
+                  border-radius: 80px;
+              }*/
+                right: 0 !important;
+                opacity: 1 !important;
+            }
+        }
+    }
+}
