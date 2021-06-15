@@ -28,7 +28,9 @@ Generate the code for the page here, note/copy the `<div>` code provided, and th
 
 #### Javascript
 
-Using a tag manager, or direct insertion, load the `multi-engagement.min.js` file on your website.
+Using a tag manager, or direct insertion, load the `multi-engagement.min.js` file on your website. You can optionally use the CDN link here
+
+https://cdn.jsdelivr.net/gh/LivePersonNY/MultiButtonEngagement/multi-engagement.min.js
 
 #### Page element
 
