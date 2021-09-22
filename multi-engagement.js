@@ -161,6 +161,19 @@ var lpMultiChannelEngagement = {
             $("head").append("<link id='lp-multichannel-css' href='"+this.defaults.css+"' type='text/css' rel='stylesheet' onload=\"lpMultiChannelEngagement.createElement();\" />");
         }
 
+    },
+    addButton: function(key, url, callback) {
+        var _this = this;
+        this.channels[key] = function() {
+            var image = $('<img>');
+            image.attr('src', url);
+            image.addClass('lp-multi-channel-'+key+' lp-multi-channel-image');
+            
+            image.click(function(e) {
+                callback();
+            });
+            this.owner.container.prepend(image);
+        }
     }
 };
 
