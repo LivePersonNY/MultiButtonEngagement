@@ -66,7 +66,7 @@ body {
     .lp-multi-channel-buttons {
         &:hover {
             .lp-multi-channel-image {
-                @for $i from 1 through 4 {
+                @for $i from 1 through 5 {
                     $del: ($i / 10) * 1s;
                     $dur: (($i / 10) + 1) * 0.4s;
                     &:nth-child(#{$i}):not(.lp-multi-channel-main) {
