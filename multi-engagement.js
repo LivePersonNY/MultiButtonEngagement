@@ -11,7 +11,7 @@ var lpMultiChannelEngagement = {
         channels: 'facebook,whatsapp,apple,sms',
         containerclass: 'lp-multi-channel-engagement',
         zindex: 10000,
-        css: 'https://cdn.jsdelivr.net/gh/LivePersonNY/MultiButtonEngagement@1.0/engagement.css',
+        css: 'https://cdn.jsdelivr.net/gh/LivePersonNY/MultiButtonEngagement@master/engagement.css',
         debug: false,
         smsmessage: "I would like to connect with SMS!",
     },
