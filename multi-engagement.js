@@ -146,6 +146,7 @@ var lpMultiChannelEngagement = {
             if (!_this.channels[item]) {
                 console.error(item + " is not a supported channel.");
             } else {
+                console.info(item + " being added...");
                 _this.channels[item]();
             }
         });
