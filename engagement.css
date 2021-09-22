@@ -43,7 +43,7 @@ body.engagement-ready .lp-multi-channel-buttons {
   }*/ }
   body.engagement-ready .lp-multi-channel-buttons .lp-multi-channel-image:not(.lp-multi-channel-main) {
     transition: right 0.5s ease 4s, opacity 1s ease 5s;
-    right: -200px; }
+    right: -250px; }
 body.engagement-ready.engagement-loaded .lp-multi-channel-image:not(.lp-multi-channel-main) {
   opacity: 0.5; }
 body .lp-multi-channel-buttons:hover .lp-multi-channel-image {

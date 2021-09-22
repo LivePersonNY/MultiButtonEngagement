@@ -2,7 +2,7 @@
   "actions" : {
     "build" : {
       "enabled" : true,
-      "script" : "#!\/bin\/sh\njsmin <multi-engagement.js> multi-engagement.min.js"
+      "script" : "#!\/bin\/sh\njsmin <multi-engagement.js> multi-engagement.min.js\nsass engagement.scss engagement.css"
     }
   },
   "identifier" : "51F878BD-347F-4866-BF56-04263342A4D8"
