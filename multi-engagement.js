@@ -164,6 +164,9 @@ var lpMultiChannelEngagement = {
     },
     addButton: function(key, url, callback) {
         var _this = this;
+        var defaultChannels = this.defaults.channels.split(',');
+        defaultChannels.push(key);
+        this.defaults.channels = defaultChannels;
         this.channels[key] = function() {
             var image = $('<img>');
             image.attr('src', url);
