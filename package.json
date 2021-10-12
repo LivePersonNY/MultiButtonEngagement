@@ -1,0 +1,44 @@
+{
+  "name": "multibuttonengagement",
+  "version": "2.0.0",
+  "description": "Customizable multi-button engagement for LivePerson's Conversational Cloud",
+  "main": "dist/engagement.js",
+  "scripts": {
+    "test": "webpack --config webpack-test.config.js",
+    "deploy": "npm version patch --git-tag-version=false && webpack && git add . && git commit -m \"version patch.\" && ./versioning.sh --patch --apply && git push && git push --tags",
+    "dev": "webpack",
+    "watch": "webpack --watch",
+    "deploy-minor": "npm version minor --git-tag-version=false && webpack && ./versioning.sh --minor --apply"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/LivePersonNY/MultiButtonEngagement.git"
+  },
+  "keywords": [
+    "liveperson"
+  ],
+  "author": "Rob Lester",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LivePersonNY/MultiButtonEngagement/issues"
+  },
+  "homepage": "https://github.com/LivePersonNY/MultiButtonEngagement#readme",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "css-loader": "^5.2.5",
+    "file-loader": "^6.2.0",
+    "mocha": "^9.1.2",
+    "postcss": "^8.2.8",
+    "postcss-loader": "^5.1.0",
+    "sass": "1.32.13",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0",
+    "webpack-node-externals": "^3.0.0",
+    "webpack-shell-plugin": "^0.5.0"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}
