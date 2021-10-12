@@ -11378,18 +11378,38 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const elementId = 'lp-multi-channel-engagement';
+var container;
 
-function init() {
+const defaults = {
+	imagemain: 'https://d1hryyr5hiabsc.cloudfront.net/web2020/img/chat-engagements/LP_Sun_2020_Engagement_Icon.svg',
+	imagefacebook: 'https://d1hryyr5hiabsc.cloudfront.net/web2020/img/chat-engagements/Facebook_Messenger2.svg',
+	imagewhatsapp: 'https://d1hryyr5hiabsc.cloudfront.net/web2020/img/chat-engagements/WhatsApp2.svg',
+	imageapple: 'https://d1hryyr5hiabsc.cloudfront.net/web2020/img/chat-engagements/Apple_Business_Chat2.svg',
+	imagesms: 'https://d1hryyr5hiabsc.cloudfront.net/web2020/img/chat-engagements/SMS2.svg',
+	channels: 'facebook,whatsapp,apple,sms',
+	containerclass: 'lp-multi-channel-engagement',
+	zindex: 10000,
+	css: 'https://cdn.jsdelivr.net/gh/LivePersonNY/MultiButtonEngagement@1.1.1/engagement.min.css',
+	debug: false,
+	smsmessage: "I would like to connect with SMS!",
+};
+var settings = {};
+
+function init(options) {
+	config(options);
 	lp_wait_for_tag();
 }
 
-function createElement() {
-	var _this = this;
-	var el = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#"+this.elementId);
+function config(options) {
+	settings = jquery__WEBPACK_IMPORTED_MODULE_0___default().extend(defaults, options);
+}
 
-	el.addClass(this.defaults.containerclass);
+function createElement() {
+	var el = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#"+elementId);
+
+	el.addClass(settings.containerclass);
 	el.css({
-		'z-index': _this.defaults.zindex,
+		'z-index': settings.zindex,
 		'display': 'none'
 	});
 
@@ -11397,10 +11417,10 @@ function createElement() {
 	buttonContainer.addClass('lp-multi-channel-buttons');
 
 	el.wrap(buttonContainer);
-	this.container = el.parent();
+	container = el.parent();
 	var configuration = el.data();
 
-	this.config(configuration);
+	config(configuration);
 	this.channels.owner = this;
 
 	this.channels.main();
