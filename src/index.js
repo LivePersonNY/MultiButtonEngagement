@@ -138,7 +138,9 @@ function lp_wait_for_tag(callback) {
 		createElement();
 		if (callback) callback();
 	} else {
-		setTimeout(lp_wait_for_tag, 50);
+		setTimeout(function() {
+			lp_wait_for_tag(callback);
+		}, 50);
 	}
 }
 
