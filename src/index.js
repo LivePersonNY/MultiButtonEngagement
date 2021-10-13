@@ -85,10 +85,11 @@ const channels = {
 	}
 };
 
-export function init(options) {
+export function init(options, callback) {
 	config(options);
 	lp_wait_for_tag();
 	lp_wait_for_jquery();
+	if (callback) callback();
 }
 
 function config(options) {

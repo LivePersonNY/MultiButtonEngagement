@@ -11461,10 +11461,11 @@ const channels = {
 	}
 };
 
-function init(options) {
+function init(options, callback) {
 	config(options);
 	lp_wait_for_tag();
 	lp_wait_for_jquery();
+	if (callback) callback();
 }
 
 function config(options) {
