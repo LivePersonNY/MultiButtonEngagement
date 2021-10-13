@@ -11511,8 +11511,8 @@ function lp_wait_for_tag(callback) {
 			//lp_wait_for_jquery(callback);
 			createElement();
 		});
-		createElement();
 		if (callback) callback();
+		createElement();
 	} else {
 		setTimeout(function() {
 			lp_wait_for_tag(callback);
