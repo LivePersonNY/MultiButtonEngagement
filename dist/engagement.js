@@ -11464,6 +11464,7 @@ const channels = {
 function init(options) {
 	config(options);
 	lp_wait_for_tag();
+	lp_wait_for_jquery();
 }
 
 function config(options) {
