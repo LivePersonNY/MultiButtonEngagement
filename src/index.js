@@ -19,6 +19,72 @@ const defaults = {
 };
 var settings = {};
 
+const channels = {
+	main: function() {
+		var image = $('<img>');
+		image.attr('src', this.owner.defaults.imagemain);
+		image.addClass('lp-multi-channel-main lp-multi-channel-image');
+		//image.attr('data-LP-event', 'click');
+		container.prepend(image);
+	},
+	facebook: function() {
+		var image = $('<img>');
+		image.attr('src', this.owner.defaults.imagefacebook);
+		image.addClass('lp-multi-channel-facebook lp-multi-channel-image');
+		var _this = this;
+		image.click(function(e) {
+			if (_this.owner.defaults.onClickFacebook) {
+				_this.owner.defaults.onClickFacebook();
+			} else {
+				_this.owner.callbacks.facebook();
+			}
+		});
+		container.prepend(image);
+	},
+	whatsapp: function() {
+		var image = $('<img>');
+		image.attr('src', this.owner.defaults.imagewhatsapp);
+		image.addClass('lp-multi-channel-whatsapp lp-multi-channel-image');
+		var _this = this;
+		image.click(function(e) {
+			if (_this.owner.defaults.onClickWhatsapp) {
+				_this.owner.defaults.onClickWhatsapp();
+			} else {
+				_this.owner.callbacks.whatsapp();
+			}
+		});
+		container.prepend(image);
+	},
+	apple: function() {
+		var image = $('<img>');
+		image.attr('src', this.owner.defaults.imageapple);
+		image.addClass('lp-multi-channel-apple lp-multi-channel-image');
+		var _this = this;
+		image.click(function(e) {
+			if (_this.owner.defaults.onClickApple) {
+				_this.owner.defaults.onClickApple();
+			} else {
+				_this.owner.callbacks.apple();
+			}
+		});
+		container.prepend(image);
+	},
+	sms: function() {
+		var image = $('<img>');
+		image.attr('src', this.owner.defaults.imagesms);
+		image.addClass('lp-multi-channel-sms lp-multi-channel-image');
+		var _this = this;
+		image.click(function(e) {
+			if (_this.owner.defaults.onClickSms) {
+				_this.owner.defaults.onClickSms();
+			} else {
+				_this.owner.callbacks.sms();
+			}
+		});
+		container.prepend(image);
+	}
+};
+
 export function init(options) {
 	config(options);
 	lp_wait_for_tag();
@@ -45,15 +111,15 @@ function createElement() {
 	var configuration = el.data();
 
 	config(configuration);
-	this.channels.owner = this;
+	channels.owner = this;
 
-	this.channels.main();
-	this.defaults.channels.split(',').forEach(function(item) {
-		if (!_this.channels[item]) {
+	channels.main();
+	settings.channels.split(',').forEach(function(item) {
+		if (!channels[item]) {
 			console.error(item + " is not a supported channel.");
 		} else {
 			console.warn(item + " being added...");
-			_this.channels[item]();
+			channels[item]();
 		}
 	});
 	setTimeout(function() {
@@ -140,8 +206,7 @@ export function startWebWithMessage(message, elementID) {
 }
 
 export function addButton(key, url, callback) {
-	var _this = this;
-	this.channels[key] = function() {
+	channels[key] = function() {
 		var image = $('<img>');
 		image.attr('src', url);
 		image.addClass('lp-multi-channel-'+key+' lp-multi-channel-image');
@@ -149,6 +214,6 @@ export function addButton(key, url, callback) {
 		image.click(function(e) {
 			callback();
 		});
-		this.owner.container.prepend(image);
+		container.prepend(image);
 	}
 }
