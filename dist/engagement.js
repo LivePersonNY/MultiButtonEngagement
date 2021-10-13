@@ -11395,7 +11395,7 @@ const defaults = {
 };
 var settings = {};
 
-const channels = {
+var channels = {
 	main: function() {
 		var image = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<img>');
 		image.attr('src', defaults.imagemain);
@@ -11549,7 +11549,7 @@ function startWebWithMessage(message, elementID) {
 }
 
 function addButton(key, url, callback) {
-	settings.channels[key] = function() {
+	channels[key] = function() {
 		var image = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<img>');
 		image.attr('src', url);
 		image.addClass('lp-multi-channel-'+key+' lp-multi-channel-image');

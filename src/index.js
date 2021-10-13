@@ -19,7 +19,7 @@ const defaults = {
 };
 var settings = {};
 
-const channels = {
+var channels = {
 	main: function() {
 		var image = $('<img>');
 		image.attr('src', defaults.imagemain);
@@ -173,7 +173,7 @@ export function startWebWithMessage(message, elementID) {
 }
 
 export function addButton(key, url, callback) {
-	settings.channels[key] = function() {
+	channels[key] = function() {
 		var image = $('<img>');
 		image.attr('src', url);
 		image.addClass('lp-multi-channel-'+key+' lp-multi-channel-image');
