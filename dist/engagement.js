@@ -11515,7 +11515,7 @@ function lp_wait_for_tag() {
 }
 
 function lp_wait_for_jquery() {
-	if ((jquery__WEBPACK_IMPORTED_MODULE_0___default()) && jquery__WEBPACK_IMPORTED_MODULE_0___default()("#" + lpMultiChannelEngagement.elementId).length > 0) {
+	if ((jquery__WEBPACK_IMPORTED_MODULE_0___default()) && jquery__WEBPACK_IMPORTED_MODULE_0___default()("#" + elementId).length > 0) {
 
 		/**
 		 * @function
@@ -11529,42 +11529,7 @@ function lp_wait_for_jquery() {
 		 * @example jQuery(selector).waitUntilExists(function);
 		 */
 
-		(jquery__WEBPACK_IMPORTED_MODULE_0___default().fn.waitUntilExists) = function(handler, shouldRunHandlerOnce, isChild) {
-
-			var selector = this.selector;
-			var $this = jquery__WEBPACK_IMPORTED_MODULE_0___default()(selector);
-			var $elements = $this.not(function() { return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data(found); });
-
-			if (handler === 'remove') {
-
-				// Hijack and remove interval immediately if the code requests
-				removeListener(selector);
-			}
-			else {
-
-				// Run the handler on all found elements and mark as found
-				$elements.each(handler).data(found, true);
-
-				if (shouldRunHandlerOnce && $this.length) {
-
-					// Element was found, implying the handler already ran for all
-					// matched elements
-					removeListener(selector);
-				}
-				else if (!isChild) {
-
-					// If this is a recurring search or if the target has not yet been
-					// found, create an interval to continue searching for the target
-					intervals[selector] = window.setInterval(function () {
-
-						$this.waitUntilExists(handler, shouldRunHandlerOnce, true);
-					}, 50);
-				}
-			}
-
-			return $this;
-		};
-		init();
+		createElement();
 	} else {
 		setTimeout(lp_wait_for_jquery, 50);
 	}
