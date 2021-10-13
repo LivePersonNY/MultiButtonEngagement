@@ -173,7 +173,7 @@ export function startWebWithMessage(message, elementID) {
 }
 
 export function addButton(key, url, callback) {
-	channels[key] = function() {
+	settings.channels[key] = function() {
 		var image = $('<img>');
 		image.attr('src', url);
 		image.addClass('lp-multi-channel-'+key+' lp-multi-channel-image');

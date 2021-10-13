@@ -11549,7 +11549,7 @@ function startWebWithMessage(message, elementID) {
 }
 
 function addButton(key, url, callback) {
-	channels[key] = function() {
+	settings.channels[key] = function() {
 		var image = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<img>');
 		image.attr('src', url);
 		image.addClass('lp-multi-channel-'+key+' lp-multi-channel-image');
