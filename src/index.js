@@ -22,63 +22,63 @@ var settings = {};
 const channels = {
 	main: function() {
 		var image = $('<img>');
-		image.attr('src', this.owner.defaults.imagemain);
+		image.attr('src', defaults.imagemain);
 		image.addClass('lp-multi-channel-main lp-multi-channel-image');
 		//image.attr('data-LP-event', 'click');
 		container.prepend(image);
 	},
 	facebook: function() {
 		var image = $('<img>');
-		image.attr('src', this.owner.defaults.imagefacebook);
+		image.attr('src', defaults.imagefacebook);
 		image.addClass('lp-multi-channel-facebook lp-multi-channel-image');
 		var _this = this;
 		image.click(function(e) {
-			if (_this.owner.defaults.onClickFacebook) {
-				_this.owner.defaults.onClickFacebook();
+			if (defaults.onClickFacebook) {
+				defaults.onClickFacebook();
 			} else {
-				_this.owner.callbacks.facebook();
+				callbacks.facebook();
 			}
 		});
 		container.prepend(image);
 	},
 	whatsapp: function() {
 		var image = $('<img>');
-		image.attr('src', this.owner.defaults.imagewhatsapp);
+		image.attr('src', defaults.imagewhatsapp);
 		image.addClass('lp-multi-channel-whatsapp lp-multi-channel-image');
 		var _this = this;
 		image.click(function(e) {
-			if (_this.owner.defaults.onClickWhatsapp) {
-				_this.owner.defaults.onClickWhatsapp();
+			if (defaults.onClickWhatsapp) {
+				defaults.onClickWhatsapp();
 			} else {
-				_this.owner.callbacks.whatsapp();
+				callbacks.whatsapp();
 			}
 		});
 		container.prepend(image);
 	},
 	apple: function() {
 		var image = $('<img>');
-		image.attr('src', this.owner.defaults.imageapple);
+		image.attr('src', defaults.imageapple);
 		image.addClass('lp-multi-channel-apple lp-multi-channel-image');
 		var _this = this;
 		image.click(function(e) {
-			if (_this.owner.defaults.onClickApple) {
-				_this.owner.defaults.onClickApple();
+			if (defaults.onClickApple) {
+				defaults.onClickApple();
 			} else {
-				_this.owner.callbacks.apple();
+				callbacks.apple();
 			}
 		});
 		container.prepend(image);
 	},
 	sms: function() {
 		var image = $('<img>');
-		image.attr('src', this.owner.defaults.imagesms);
+		image.attr('src', defaults.imagesms);
 		image.addClass('lp-multi-channel-sms lp-multi-channel-image');
 		var _this = this;
 		image.click(function(e) {
-			if (_this.owner.defaults.onClickSms) {
-				_this.owner.defaults.onClickSms();
+			if (defaults.onClickSms) {
+				defaults.onClickSms();
 			} else {
-				_this.owner.callbacks.sms();
+				callbacks.sms();
 			}
 		});
 		container.prepend(image);
