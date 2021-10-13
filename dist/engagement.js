@@ -11466,8 +11466,8 @@ function init(options, callback) {
 	lp_wait_for_tag();
 }
 
-function config(options) {
-	settings = jquery__WEBPACK_IMPORTED_MODULE_0___default().extend(defaults, options);
+function config(options, overrides) {
+	settings = jquery__WEBPACK_IMPORTED_MODULE_0___default().extend(overrides || defaults, options);
 }
 
 function createElement() {
@@ -11486,7 +11486,7 @@ function createElement() {
 	container = el.parent();
 	var configuration = el.data();
 
-	config(configuration);
+	config(configuration, settings);
 	channels.owner = this;
 
 	channels.main();

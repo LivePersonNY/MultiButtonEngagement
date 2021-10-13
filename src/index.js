@@ -90,8 +90,8 @@ export function init(options, callback) {
 	lp_wait_for_tag();
 }
 
-function config(options) {
-	settings = $.extend(defaults, options);
+function config(options, overrides) {
+	settings = $.extend(overrides || defaults, options);
 }
 
 function createElement() {
@@ -110,7 +110,7 @@ function createElement() {
 	container = el.parent();
 	var configuration = el.data();
 
-	config(configuration);
+	config(configuration, settings);
 	channels.owner = this;
 
 	channels.main();
