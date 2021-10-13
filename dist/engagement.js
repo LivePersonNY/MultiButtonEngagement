@@ -11508,8 +11508,7 @@ function createElement() {
 function lp_wait_for_tag(callback) {
 	if (window.lpTag && jquery__WEBPACK_IMPORTED_MODULE_0___default()("#" + elementId).length > 0) {
 		lpTag.events.bind('lpUnifiedWindow', 'windowClosed', function(data) {
-			//lp_wait_for_jquery(callback);
-			createElement();
+			lp_wait_for_tag();
 		});
 		if (callback) callback();
 		createElement();
