@@ -87,9 +87,7 @@ var channels = {
 
 export function init(options, callback) {
 	config(options);
-	lp_wait_for_tag();
-	lp_wait_for_jquery();
-	if (callback) callback();
+	lp_wait_for_tag(callback);
 }
 
 function config(options) {
@@ -129,17 +127,19 @@ function createElement() {
 	},100);
 }
 
-function lp_wait_for_tag() {
+function lp_wait_for_tag(callback) {
 	if (window.lpTag) {
 		lpTag.events.bind('lpUnifiedWindow', 'windowClosed', function(data) {
-			lp_wait_for_jquery();
+			//lp_wait_for_jquery(callback);
+			createElement();
+			if (callback) callback();
 		});
 	} else {
 		setTimeout(lp_wait_for_tag, 50);
 	}
 }
 
-function lp_wait_for_jquery() {
+function lp_wait_for_jquery(callback) {
 	if ($ && $("#" + elementId).length > 0) {
 
 		/**
@@ -155,6 +155,7 @@ function lp_wait_for_jquery() {
 		 */
 
 		createElement();
+		if (callback) callback();
 	} else {
 		setTimeout(lp_wait_for_jquery, 50);
 	}
@@ -173,6 +174,11 @@ export function startWebWithMessage(message, elementID) {
 }
 
 export function addButton(key, url, callback) {
+	
+	var channelArray = settings.channels.split(',');
+	channelArray.push(key);
+	settings.channels = channelArray.join(',');
+	
 	channels[key] = function() {
 		var image = $('<img>');
 		image.attr('src', url);
