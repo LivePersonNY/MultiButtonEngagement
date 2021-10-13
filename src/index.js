@@ -87,7 +87,9 @@ var channels = {
 
 export function init(options, callback) {
 	config(options);
-	lp_wait_for_tag(callback);
+	lp_wait_for_tag();
+	createElement();
+	if (callback) callback();
 }
 
 function config(options) {
@@ -127,12 +129,11 @@ function createElement() {
 	},100);
 }
 
-function lp_wait_for_tag(callback) {
+function lp_wait_for_tag() {
 	if (window.lpTag) {
 		lpTag.events.bind('lpUnifiedWindow', 'windowClosed', function(data) {
 			//lp_wait_for_jquery(callback);
 			createElement();
-			if (callback) callback();
 		});
 	} else {
 		setTimeout(lp_wait_for_tag, 50);
