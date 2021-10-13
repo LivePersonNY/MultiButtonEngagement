@@ -11485,6 +11485,8 @@ function createElement() {
 	el.wrap(buttonContainer);
 	container = el.parent();
 	var configuration = el.data();
+	
+	console.log(configuration);
 
 	config(configuration, settings);
 	channels.owner = this;
