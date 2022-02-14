@@ -130,7 +130,7 @@ function createElement() {
 }
 
 function lp_wait_for_tag(callback) {
-	if (window.lpTag && $("#" + elementId).length > 0) {
+	if (window.lpTag && window.$ && $("#" + elementId).length > 0) {
 		lpTag.events.bind('lpUnifiedWindow', 'windowClosed', function(data) {
 			lp_wait_for_tag();
 		});
@@ -144,7 +144,7 @@ function lp_wait_for_tag(callback) {
 }
 
 function lp_wait_for_jquery(callback) {
-	if ($ && $("#" + elementId).length > 0) {
+	if (window.$ && $("#" + elementId).length > 0) {
 
 		/**
 		 * @function

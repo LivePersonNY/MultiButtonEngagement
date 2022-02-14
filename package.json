@@ -1,6 +1,6 @@
 {
   "name": "multibuttonengagement",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Customizable multi-button engagement for LivePerson's Conversational Cloud",
   "main": "dist/engagement.js",
   "scripts": {
